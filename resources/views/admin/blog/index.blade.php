@@ -35,7 +35,7 @@
                                                 <td>{{ $key + 1 }}</td>
                                                 <td><img src="{{ asset($item->image) }}" width="70" alt="Image"></td>
                                                 <td>{{ $item->title }}</td>
-                                                <td>{{ \Illuminate\Support\Str::limit($item->description, 60) }}</td>
+                                                <td>{!! \Illuminate\Support\Str::limit($item->description, 60) !!}</td>
                                                 <td>
                                                     <a href="{{ route('admin.blog.edit', $item->id) }}"
                                                         class="btn btn-sm btn-warning">Edit</a>

@@ -15,6 +15,8 @@
 
 <!-- jQuery  -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+<script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
+
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/tether.min.js')}}"></script><!-- Tether for Bootstrap -->
 <script src="{{asset('assets/js/popper.min.js')}}"></script>

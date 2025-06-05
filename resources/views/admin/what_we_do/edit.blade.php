@@ -37,7 +37,7 @@
 
                             <div class="form-group">
                                 <label for="description">Description</label>
-                                <textarea name="description" class="form-control" rows="4">{{ $items->description }}</textarea>
+                                <textarea name="description" id="description" class="form-control" rows="4">{{ $items->description }}</textarea>
                             </div>
 
                             <button type="submit" class="btn btn-success">Update</button>
@@ -52,3 +52,10 @@
     </div> <!-- container-fluid -->
 </div> <!-- page-content-wrapper -->
 @endsection
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (document.getElementById('description')) {
+            CKEDITOR.replace('description');
+        }
+    });
+</script>
