@@ -8,14 +8,14 @@
                 <div class="col-12">
                     <div class="card m-b-20">
                         <div class="card-body">
-                            <h4 class="mt-0 m-b-15 header-title">Banner List</h4>
+                            <h4 class="mt-0 m-b-15 header-title">Logo List</h4>
 
                             @if (session('success'))
                                 <div class="alert alert-success">{{ session('success') }}</div>
                             @endif
 
                             <div class="mb-3">
-                                <a href="{{ route('admin.banner.add') }}" class="btn btn-primary">Add</a>
+                                <a href="{{ route('admin.logo.add') }}" class="btn btn-primary">Add</a>
                             </div>
 
                             <div class="table-responsive">
@@ -23,25 +23,21 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Title</th>
-                                            <th>Heading</th>
                                             <th>Image</th>
-                                            <th>Description</th>
+                                            <th>Title</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse($banners as $key => $item)
+                                        @forelse($logos as $key => $item)
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
-                                                <td>{{ $item->title }}</td>
-                                                <td>{{ $item->heading }}</td>
                                                 <td><img src="{{ asset($item->image) }}" width="70" alt="Image"></td>
-                                                <td>{!! \Illuminate\Support\Str::limit($item->description, 60) !!}</td>
-                                                <td>                         
-                                                    <a href="{{ route('admin.banner.edit', $item->id) }}"
+                                                <td>{{ $item->title }}</td>
+                                                <td>
+                                                    <a href="{{ route('admin.logo.edit', $item->id) }}"
                                                         class="btn btn-sm btn-warning">Edit</a>
-                                                    <a href="{{ route('admin.banner.delete', $item->id) }}"
+                                                    <a href="{{ route('admin.logo.delete', $item->id) }}"
                                                         class="btn btn-sm btn-danger"
                                                         onclick="return confirm('Are you sure you want to delete this item?')">
                                                         Delete

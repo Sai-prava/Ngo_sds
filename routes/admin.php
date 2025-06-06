@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\LogoController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\whatWeDoController;
 use Illuminate\Support\Facades\Route;
@@ -53,6 +54,7 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::get('team/edit/{id}', [TeamController::class, 'edit'])->name('team.edit');
         Route::post('team/update/{id}', [TeamController::class, 'update'])->name('team.update');
         Route::get('team/delete/{id}', [TeamController::class, 'delete'])->name('team.delete');
+
         //banner
         Route::get('banner', [BannerController::class, 'index'])->name('banner.index');
         Route::get('banner/add', [BannerController::class, 'add'])->name('banner.add');
@@ -60,6 +62,14 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::get('banner/edit/{id}', [BannerController::class, 'edit'])->name('banner.edit');
         Route::post('banner/update/{id}', [BannerController::class, 'update'])->name('banner.update');
         Route::get('banner/delete/{id}', [BannerController::class, 'delete'])->name('banner.delete');
+
+        //logo
+        Route::get('logo', [LogoController::class, 'index'])->name('logo.index');
+        Route::get('logo/add', [LogoController::class, 'add'])->name('logo.add');
+        Route::post('logo/store', [LogoController::class, 'store'])->name('logo.store');
+        Route::get('logo/edit/{id}', [LogoController::class, 'edit'])->name('logo.edit');
+        Route::post('logo/update/{id}', [LogoController::class, 'update'])->name('logo.update');
+        Route::get('logo/delete/{id}', [LogoController::class, 'delete'])->name('logo.delete');
 
         //contact
         Route::get('contact/list', [ContactController::class, 'list'])->name('contact.list');

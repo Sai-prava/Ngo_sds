@@ -391,8 +391,8 @@
             <div class="container">
                 <div class="header-container">
                     @php
-                        use App\Models\Banner;
-                        $logo = Banner::first();
+                        use App\Models\Logo;
+                        $logo = Logo::first();
                     @endphp
                     <div class="logo">
                         <a href="{{ route('web.index') }}">

@@ -97,6 +97,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('admin.logo.index') }}" class="waves-effect">
+                                <i class="mdi mdi-view-dashboard"></i> <span> Logo Image </span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ route('admin.banner.index') }}" class="waves-effect">
                                 <i class="mdi mdi-view-dashboard"></i> <span> Banner </span>
                             </a>
