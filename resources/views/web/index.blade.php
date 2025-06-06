@@ -619,138 +619,78 @@
             transform: scale(0.98) !important;
         }
     }
+
+    /* .image-layer {
+    background-size: cover !important;
+    background-position: center !important;
+    height: 100vh !important; or a fixed height */
 </style>
 @section('content')
     <!--Start Main Slider -->
     <section class="main-slider main-slider-one">
+        @php
+            use App\Models\Banner;
+            $banners = Banner::all();
+        @endphp
+
         <div class="main-slider-one__inner">
             <div class="owl-carousel owl-theme thm-owl__carousel testimonial-one__carousel nav-style1 dot-style1"
                 data-owl-options='{
-                            "loop": true,
-                            "autoplay": true,
-                            "animateOut": "slideOutDown",
-                            "animateIn": "fadeIn",
-                            "margin": 0,
-                            "nav": true,
-                            "dots": true,
-                            "smartSpeed": 500,
-                            "autoplayTimeout": 10000,
-                            "navText": ["<span class=\"icon-arrow-right1\"></span>","<span class=\"icon-arrow-right\"></span>"],
-                            "responsive": {
-                                    "0": {
-                                        "items": 1
-                                    },
-                                    "768": {
-                                        "items": 1
-                                    },
-                                    "992": {
-                                        "items": 1
-                                    },
-                                    "1200": {
-                                        "items": 1
-                                    }
-                                }
-                            }'>
+                "loop": true,
+                "autoplay": true,
+                "animateOut": "slideOutDown",
+                "animateIn": "fadeIn",
+                "margin": 0,
+                "nav": true,
+                "dots": true,
+                "smartSpeed": 500,
+                "autoplayTimeout": 10000,
+                "navText": ["<span class=\"icon-arrow-right1\"></span>","<span class=\"icon-arrow-right\"></span>"],
+                "responsive": {
+                    "0": { "items": 1 },
+                    "768": { "items": 1 },
+                    "992": { "items": 1 },
+                    "1200": { "items": 1 }
+                }
+            }'>
 
-                <!--Start Main Slider One Single-->
-                <div class="main-slider-one__single">
-                    <div class="image-layer" style="background-image:url({{ asset('web/assets/img/slide1.jpg') }})">
+                @foreach ($banners as $banner)
+                    <div class="main-slider-one__single">
+                        <img class="image-layer" src="{{ asset($banner->image) }}" alt="Banner Image">
 
-                    </div>
-                    <!-- <div class="shape1"><img src="assets/images/shapes/main-slider-v1-shape1.png" alt="#"></div>
-                                                            <div class="shape2"><img src="assets/images/shapes/main-slider-v1-shape2.png" alt="#"></div> -->
 
-                    <div class="container">
-                        <div class="main-slider-one__content">
-                            <div class="tagline">
-                                <span>Our Environment is Our Life.</span>
-                            </div>
-                            <div class="title">
-                                <h2>Environment is life,<br>pollution is death.</h2>
-                            </div>
+                        <div class="container">
+                            <div class="main-slider-one__content">
+                                @if ($banner->heading)
+                                    <div class="tagline">
+                                        <span>{{ $banner->heading }}</span>
+                                    </div>
+                                @endif
 
-                            <div class="text">
-                                <p>We want to make giving simple, fun and meaningful for you. <br> The
-                                    possibilities
-                                    are endless!</p>
-                            </div>
+                                @if ($banner->title)
+                                    <div class="title">
+                                        <h2>{{ $banner->title }}</h2>
+                                    </div>
+                                @endif
 
-                            <div class="btn-box">
-                                <a class="thm-btn" href="{{ route('web.contact') }}">
-                                    <span class="txt">Contact Us</span>
-                                </a>
+                                @if ($banner->description)
+                                    <div class="text">
+                                        <p>{!! $banner->description !!}</p>
+                                    </div>
+                                @endif
+
+                                <div class="btn-box">
+                                    <a class="thm-btn" href="{{ route('web.contact') }}">
+                                        <span class="txt">Contact Us</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!--End Main Slider One Single-->
-
-                <!--Start Main Slider One Single-->
-                <div class="main-slider-one__single">
-                    <div class="image-layer" style="background-image:url({{ asset('web/assets/img/slide2.jpg') }})">
-                    </div>
-                    <!-- <div class="shape1"><img src="assets/images/shapes/main-slider-v1-shape1.png" alt="#"></div>
-                                                            <div class="shape2"><img src="assets/images/shapes/main-slider-v1-shape2.png" alt="#"></div> -->
-
-                    <div class="container">
-                        <div class="main-slider-one__content">
-                            <div class="tagline">
-                                <span>Safer the environment healthier the life!</span>
-                            </div>
-                            <div class="title">
-                                <h2>Go Green <br>Grow Enviroment</h2>
-                            </div>
-
-                            <div class="text">
-                                <p>We want to make giving simple, fun and meaningful for you. <br> The
-                                    possibilities
-                                    are endless!</p>
-                            </div>
-
-                            <div class="btn-box">
-                                <a class="thm-btn" href="{{ route('web.contact') }}">
-                                    <span class="txt">Contact Us</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Main Slider One Single-->
-
-                <!--Start Main Slider One Single-->
-                <div class="main-slider-one__single">
-                    <div class="image-layer" style="background-image:url({{ asset('web/assets/img/slide3.jpg') }})">
-                    </div>
-                    <!-- <div class="shape1"><img src="assets/images/shapes/main-slider-v1-shape1.png" alt="#"></div>
-                                                            <div class="shape2"><img src="assets/images/shapes/main-slider-v1-shape2.png" alt="#"></div> -->
-
-                    <div class="container">
-                        <div class="main-slider-one__content">
-                            <div class="tagline">
-                                <span>Nature is our Mother</span>
-                            </div>
-                            <div class="title">
-                                <h2>For this earth we adore,<br> let's all do more!</h2>
-                            </div>
-
-                            <div class="text">
-                                <p>We want to make giving simple, fun and meaningful for you. <br> The
-                                    possibilities
-                                    are endless!</p>
-                            </div>
-
-                            <div class="btn-box">
-                                <a class="thm-btn" href="{{ route('web.contact') }}">
-                                    <span class="txt">Contact Us</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Main Slider One Single-->
+                @endforeach
             </div>
         </div>
+
     </section>
     <!--End Main Slider-->
 
@@ -796,27 +736,27 @@
 
 
     <!--
-                                                    <div class="about-one__bottom">
-                                                        <div class="about-one__bottom-inner">
-                                                            <div class="about-one__bottom-content">
-                                                                <div class="icon-box">
-                                                                    <span class="icon-donation-2"></span>
-                                                                </div>
+                                                                <div class="about-one__bottom">
+                                                                    <div class="about-one__bottom-inner">
+                                                                        <div class="about-one__bottom-content">
+                                                                            <div class="icon-box">
+                                                                                <span class="icon-donation-2"></span>
+                                                                            </div>
 
-                                                                <div class="text-box">
-                                                                    <h2>Since 1980, we've granted more than <br> 120,000 wishes all over the world.</h2>
+                                                                            <div class="text-box">
+                                                                                <h2>Since 1980, we've granted more than <br> 120,000 wishes all over the world.</h2>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="about-one__bottom-btn">
+                                                                            <a class="thm-btn" href="about.html">
+                                                                                <span class="txt">Learn About us</span>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-
-                                                            <div class="about-one__bottom-btn">
-                                                                <a class="thm-btn" href="about.html">
-                                                                    <span class="txt">Learn About us</span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section> -->
+                                                        </section> -->
     <!--End About One -->
 
     <!-- Objective section -->
@@ -980,32 +920,32 @@
             <div class="row g-4 justify-content-center">
                 <!-- Trustee 1 -->
                 @foreach ($teamMembers as $member)
-                <div class="col-lg-4 col-md-6">
-                    
-                    <div class="trustee-card">
-                        
-                        <div class="trustee-image text-center">
-                            <img src="{{ asset($member->image) }}" alt="{{ $member->name }}">
-                        </div>
-                        <div class="trustee-info">
-                            <h4>{{ $member->name }}</h4>
-                            {{-- <p class="mb-2">Chairman</p> --}}
-                            <div class="trustee-description">
-                                <p>{{ $member->description }}</p>
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="trustee-card">
+
+                            <div class="trustee-image text-center">
+                                <img src="{{ asset($member->image) }}" alt="{{ $member->name }}">
                             </div>
-                            <div class="trustee-social">
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <div class="trustee-info">
+                                <h4>{{ $member->name }}</h4>
+                                {{-- <p class="mb-2">Chairman</p> --}}
+                                <div class="trustee-description">
+                                    <p>{{ $member->description }}</p>
+                                </div>
+                                <div class="trustee-social">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                </div>
                             </div>
+
                         </div>
-                        
+
                     </div>
-                 
-                </div>
                 @endforeach
                 <!-- Trustee 2 -->
-               
+
             </div>
         </div>
     </section>
