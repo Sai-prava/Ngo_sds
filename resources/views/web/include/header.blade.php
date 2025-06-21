@@ -329,7 +329,6 @@
             background-color: #0056b3;
         }
     </style>
-
 </head>
 
 <body>
@@ -441,7 +440,6 @@
                             Login
                         </a>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -101,7 +101,7 @@
                     <!-- Text Column -->
                     <div class="col-md-6">
                         <h3 class="mb-3">{{ $item->title }}</h3>
-                        <p class="text-muted">{{ $item->description }}</p>
+                        <p class="text-muted">{!! $item->description !!}</p>
                     </div>
                 </div>
             </div>
